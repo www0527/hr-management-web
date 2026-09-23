@@ -1,6 +1,5 @@
 <?php
 
-use Faker\Guesser\Name;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->integer('is_delete');
+            $table->boolean('is_delete')->default(0);
             $table->string('name');
             $table->string('code')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
-            });
+        });
     }
 
     /**

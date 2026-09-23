@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
 
             // 每人在同一年不能擁有相同類型的休假餘額
-            $table->unique('employee_id', 'leave_type_id', 'year');
+            $table->unique(['employee_id', 'leave_type_id', 'year']);
         });
     }
 

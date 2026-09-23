@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Pest\Plugin\Manager;
 
 #[Fillable('user_id', 'last_name', 'email', 'phone',
     'department', 'department_id', 'position_id', 'manager_id', 'hire_date',
@@ -49,7 +48,7 @@ class Employee extends Model
 
     public function manager(): BelongsTo
     {
-        return $this->belongsTo(Manager::class);
+        return $this->belongsTo(Employee::class, 'manager_id');
     }
 
     /**
